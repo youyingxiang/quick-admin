@@ -11,20 +11,24 @@
     }
   ],
   "require": {
-    "php": ">=7.1.0"
+    "php": ">=7.1.0",
+    "topthink/think-view":"^1.0.14"
   },
   "autoload": {
     "psr-4": {
-      "Quick\\Admin\\": "src/"
+      "quick\\admin\\": "src/"
     }
   },
   "extra": {
     "think": {
       "services": [
-        "Quick\\Admin\\AdminService"
+        "quick\\admin\\AdminService"
       ],
       "config":{
         "admin": "config/admin.php"
+      },
+      "aliases": {
+        "Admin": "quick\\admin\\facades\\Admin"
       }
     }
   }
