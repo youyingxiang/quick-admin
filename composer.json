@@ -1,6 +1,6 @@
 {
-  "name": "quick/admin",
-  "keywords": ["thinkphp","admin","tp","grid", "form","quick","quick-admin"],
+  "name": "yxx/quick-admin",
+  "keywords": ["thinkphp","admin","tp","grid", "form","quick-admin"],
   "description": "quick admin",
   "type": "library",
   "license": "MIT",
