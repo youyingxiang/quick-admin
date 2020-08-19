@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "quick\\admin\\": "src/"
+      "quick\\admin\\": "src"
     }
   },
   "extra": {

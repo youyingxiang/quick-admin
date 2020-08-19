@@ -13,7 +13,7 @@ class AuthController
 
     public function getLogin()
     {
-
+        return '你好这是登陆界面';
     }
 
     public function postLogin()

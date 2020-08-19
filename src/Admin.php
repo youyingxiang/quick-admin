@@ -5,10 +5,7 @@
  * Date: 2020/8/19
  * Time: 2:26 PM
  */
-
 namespace quick\admin;
-
-use think\Route;
 
 /**
  * Class Admin
@@ -17,22 +14,20 @@ use think\Route;
 class Admin
 {
     /**
-     * The Quick admin version.
+     * Quick admin 版本号.
      *
      * @var string
      */
     const VERSION = '1.0.0';
 
     /**
-     * 注册quick-admin管理内置路由
+     * 版本.
      *
-     * @return void
+     * @return string
      */
-    public function routes(): void
+    public static function longVersion()
     {
-        $attributes = [
-            'prefix'     => config('admin.route.prefix'),
-            'middleware' => config('admin.route.middleware'),
-        ];
+        return sprintf('Quick Admin <comment>version</comment> <info>%s</info>', static::VERSION);
     }
+
 }

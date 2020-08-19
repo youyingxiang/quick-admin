@@ -13,15 +13,13 @@ use think\Facade;
 class Admin extends Facade
 {
     /**
-     * Class Admin.
-     *
-     * @method static void routes()
-     *
-     * @see \quick\admin\Admin
+     * Class Admin
+     * @method static \quick\admin\Admin    routes()
+     * @return string
      */
     protected static function getFacadeClass(): string
     {
-        return "quick\admin\Admin";
+        return \quick\admin\Admin::class;
     }
 }
 
