@@ -5,7 +5,6 @@
  * Date: 2020/8/19
  * Time: 5:56 PM
  */
-
 namespace quick\admin\console;
 
 use quick\admin\Admin;
@@ -36,6 +35,7 @@ LOGO;
             ->setHelp('非常不错');
     }
 
+
     public function handle(): void
     {
         $this->output->info(static::$logo);
@@ -44,5 +44,5 @@ LOGO;
         $this->output->comment('Available commands:');
     }
 
-    
+
 }

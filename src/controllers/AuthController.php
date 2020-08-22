@@ -8,12 +8,20 @@
 
 namespace quick\admin\controllers;
 
-class AuthController
-{
 
-    public function getLogin()
+use think\response\View;
+
+class AuthController extends AdminController
+{
+    /**
+     * @var string
+     */
+    protected $view = 'test:index';
+
+
+    public function getLogin():View
     {
-        return '你好这是登陆界面';
+        return admin_view($this->view);
     }
 
     public function postLogin()

@@ -9,6 +9,7 @@
 namespace quick\admin;
 
 use quick\admin\console\AdminCommand;
+use quick\admin\console\InstallCommand;
 use quick\admin\controllers\AuthController;
 use think\Route;
 use think\Service;
@@ -32,7 +33,8 @@ class AdminService extends Service
      * @var array
      */
     protected $commands = [
-        AdminCommand::class
+        AdminCommand::class,
+        InstallCommand::class,
     ];
 
     /**
@@ -87,7 +89,7 @@ class AdminService extends Service
      */
     protected function registerPublishing(): void
     {
-        $this->publishes([__DIR__ . '/../resources/assets' => public_path('vendor/laravel-admin')], 'laravel-admin-assets');
+        $this->publishes([__DIR__ . '/../resources/assets' => public_path('vendor/quick-admin')], 'laravel-admin-assets');
 //        if ($this->app->runningInConsole()) {
 //            $this->publishes([__DIR__ . '/../resources/assets' => public_path('vendor/laravel-admin')], 'laravel-admin-assets');
 //        }
