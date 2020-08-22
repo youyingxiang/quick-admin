@@ -90,7 +90,7 @@ if (! function_exists('admin_favicon')) {
     }
 }
 
-if (! function_exists('admin_asset')) {
+if (!function_exists('admin_asset')) {
     /**
      * @param $path
      */
