@@ -54,7 +54,7 @@ class Admin
      */
     public static function title(?string $title)
     {
-        if (!$title) {
+        if (! $title) {
             return static::$metaTitle ?: config('admin.title');
         }
 
