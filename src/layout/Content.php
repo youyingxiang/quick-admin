@@ -1,10 +1,21 @@
 <?php
 
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
+ */
+
 namespace quick\admin\layout;
 
 use Closure;
 use think\Response;
-use think\response\View;
 
 class Content extends Response
 {
@@ -37,10 +48,7 @@ class Content extends Response
      */
     protected $view = 'layouts:content';
 
-
     /**
-     * @param string $title
-     *
      * @return $this
      */
     public function title(string $title): self
@@ -87,7 +95,7 @@ class Content extends Response
     {
         if ($content instanceof Closure) {
             $row = new Row();
-            call_user_func($content, $row);
+            \call_user_func($content, $row);
             $this->addRow($row);
         } else {
             $this->addRow(new Row($content));
@@ -98,8 +106,6 @@ class Content extends Response
 
     /**
      * Add Row.
-     *
-     * @param Row $row
      */
     protected function addRow(Row $row)
     {
@@ -128,14 +134,13 @@ class Content extends Response
 
     public function getContent(): string
     {
-        $item       = [
-            'header'      => $this->title,
+        $item = [
+            'header' => $this->title,
             'description' => $this->description,
-//            'breadcrumb'  => $this->breadcrumb,
-            '_content_'   => $this->build(),
+            //            'breadcrumb'  => $this->breadcrumb,
+            '_content_' => $this->build(),
         ];
+
         return admin_view($this->view, $item)->getContent();
     }
-
-
 }

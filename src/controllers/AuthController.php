@@ -1,13 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: youxingxiang
- * Date: 2020/8/19
- * Time: 2:49 PM
+
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
  */
 
 namespace quick\admin\controllers;
-
 
 use think\response\View;
 
@@ -18,15 +23,12 @@ class AuthController extends AdminController
      */
     protected $view = 'test:index';
 
-
-    public function getLogin():View
+    public function getLogin(): View
     {
         return admin_view($this->view);
     }
 
     public function postLogin()
     {
-
     }
-
 }

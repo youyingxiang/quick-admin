@@ -1,5 +1,17 @@
 <?php
 
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
+ */
+
 namespace quick\admin\traits;
 
 trait HasAssets
@@ -53,7 +65,7 @@ trait HasAssets
      * @var array
      */
     public static $min = [
-        'js'  => 'vendor/laravel-admin/quick-admin.min.js',
+        'js' => 'vendor/laravel-admin/quick-admin.min.js',
         'css' => 'vendor/laravel-admin/quick-admin.min.css',
     ];
 
@@ -64,15 +76,15 @@ trait HasAssets
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback',
         'vendor/quick-admin/plugins/fontawesome-free/css/all.min.css',
         'vendor/quick-admin/dist/css/adminlte.min.css',
-//        'vendor/laravel-admin/AdminLTE/bootstrap/css/bootstrap.min.css',
-//        'vendor/laravel-admin/font-awesome/css/font-awesome.min.css',
-//        'vendor/laravel-admin/laravel-admin/laravel-admin.css',
-//        'vendor/laravel-admin/nprogress/nprogress.css',
-//        'vendor/laravel-admin/sweetalert2/dist/sweetalert2.css',
-//        'vendor/laravel-admin/nestable/nestable.css',
-//        'vendor/laravel-admin/toastr/build/toastr.min.css',
-//        'vendor/laravel-admin/bootstrap3-editable/css/bootstrap-editable.css',
-//        'vendor/laravel-admin/google-fonts/fonts.css',
+        //        'vendor/laravel-admin/AdminLTE/bootstrap/css/bootstrap.min.css',
+        //        'vendor/laravel-admin/font-awesome/css/font-awesome.min.css',
+        //        'vendor/laravel-admin/laravel-admin/laravel-admin.css',
+        //        'vendor/laravel-admin/nprogress/nprogress.css',
+        //        'vendor/laravel-admin/sweetalert2/dist/sweetalert2.css',
+        //        'vendor/laravel-admin/nestable/nestable.css',
+        //        'vendor/laravel-admin/toastr/build/toastr.min.css',
+        //        'vendor/laravel-admin/bootstrap3-editable/css/bootstrap-editable.css',
+        //        'vendor/laravel-admin/google-fonts/fonts.css',
     ];
 
     /**
@@ -82,7 +94,7 @@ trait HasAssets
         'vendor/quick-admin/plugins/bootstrap/js/bootstrap.bundle.min.js',
         'vendor/quick-admin/dist/js/adminlte.min.js',
         'vendor/quick-admin/dist/js/adminlte.min.js',
-        'vendor/quick-admin/dist/js/demo.js'
+        'vendor/quick-admin/dist/js/demo.js',
     ];
 
     /**
@@ -98,14 +110,13 @@ trait HasAssets
     /**
      * @param null $css
      * @param bool $minify
-     * @return string
      */
     public static function css($css = null, $minify = true): string
     {
         static::ignoreMinify($css, $minify);
 
-        if (!is_null($css)) {
-            return self::$css = array_merge(self::$css, (array)$css);
+        if (null !== $css) {
+            return self::$css = array_merge(self::$css, (array) $css);
         }
 
         if (!$css = static::getMinifiedCss()) {
@@ -117,7 +128,6 @@ trait HasAssets
         return admin_view('partials:css', compact('css'))->getContent();
     }
 
-
     /**
      * @param null $css
      * @param bool $minify
@@ -128,13 +138,13 @@ trait HasAssets
     {
         static::ignoreMinify($css, $minify);
 
-        if (!is_null($css)) {
+        if (null !== $css) {
             return static::$baseCss = $css;
         }
 
 //        $skin = config('admin.skin', 'skin-blue-light');
 
-      //  array_unshift(static::$baseCss, "vendor/laravel-admin/AdminLTE/dist/css/skins/{$skin}.min.css");
+        //  array_unshift(static::$baseCss, "vendor/laravel-admin/AdminLTE/dist/css/skins/{$skin}.min.css");
 
         return static::$baseCss;
     }
@@ -142,14 +152,13 @@ trait HasAssets
     /**
      * @param null $js
      * @param bool $minify
-     * @return string
      */
-    public static function js($js = null, $minify = true):string
+    public static function js($js = null, $minify = true): string
     {
         static::ignoreMinify($js, $minify);
 
-        if (!is_null($js)) {
-            return self::$js = array_merge(self::$js, (array)$js);
+        if (null !== $js) {
+            return self::$js = array_merge(self::$js, (array) $js);
         }
 
         if (!$js = static::getMinifiedJs()) {
@@ -163,12 +172,11 @@ trait HasAssets
 
     /**
      * @param null $js
-     * @return string
      */
-    public static function headerJs($js = null):string
+    public static function headerJs($js = null): string
     {
-        if (!is_null($js)) {
-            return self::$headerJs = array_merge(self::$headerJs, (array)$js);
+        if (null !== $js) {
+            return self::$headerJs = array_merge(self::$headerJs, (array) $js);
         }
 
         return admin_view('partials:js', ['js' => array_unique(static::$headerJs)])->getContent();
@@ -184,7 +192,7 @@ trait HasAssets
     {
         static::ignoreMinify($js, $minify);
 
-        if (!is_null($js)) {
+        if (null !== $js) {
             return static::$baseJs = $js;
         }
 
@@ -193,7 +201,7 @@ trait HasAssets
 
     /**
      * @param string $assets
-     * @param bool $ignore
+     * @param bool   $ignore
      */
     public static function ignoreMinify($assets, $ignore = true)
     {
@@ -204,7 +212,7 @@ trait HasAssets
 
     /**
      * @param string $script
-     * @param bool $deferred
+     * @param bool   $deferred
      *
      * @return array|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -212,10 +220,10 @@ trait HasAssets
     {
         if (!empty($script)) {
             if ($deferred) {
-                return self::$deferredScript = array_merge(self::$deferredScript, (array)$script);
+                return self::$deferredScript = array_merge(self::$deferredScript, (array) $script);
             }
 
-            return self::$script = array_merge(self::$script, (array)$script);
+            return self::$script = array_merge(self::$script, (array) $script);
         }
 
         $script = array_unique(array_merge(static::$script, static::$deferredScript));
@@ -231,7 +239,7 @@ trait HasAssets
     public static function style($style = '')
     {
         if (!empty($style)) {
-            return self::$style = array_merge(self::$style, (array)$style);
+            return self::$style = array_merge(self::$style, (array) $style);
         }
 
         return admin_view('admin::partials.style', ['style' => array_unique(self::$style)]);
@@ -245,7 +253,7 @@ trait HasAssets
     public static function html($html = '')
     {
         if (!empty($html)) {
-            return self::$html = array_merge(self::$html, (array)$html);
+            return self::$html = array_merge(self::$html, (array) $html);
         }
 
         return admin_view('admin::partials.html', ['html' => array_unique(self::$html)]);
@@ -253,6 +261,7 @@ trait HasAssets
 
     /**
      * @param $key
+     *
      * @return mixed
      */
     protected static function getManifestData($key)

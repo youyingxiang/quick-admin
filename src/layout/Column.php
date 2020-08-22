@@ -1,5 +1,17 @@
 <?php
 
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
+ */
+
 namespace quick\admin\layout;
 
 use think\Response;
@@ -27,14 +39,14 @@ class Column extends Response
     public function __construct($content, $width = 12)
     {
         if ($content instanceof \Closure) {
-            call_user_func($content, $this);
+            \call_user_func($content, $this);
         } else {
             $this->append($content);
         }
 
         ///// set width.
         // if null, or $this->width is empty array, set as "md" => "12"
-        if (is_null($width) || (is_array($width) && count($width) === 0)) {
+        if (null === $width || (\is_array($width) && \count($width) === 0)) {
             $this->width['md'] = 12;
         } // $this->width is number(old version), set as "md" => $width
         elseif (is_numeric($width)) {
@@ -72,7 +84,7 @@ class Column extends Response
         } else {
             $row = new Row();
 
-            call_user_func($content, $row);
+            \call_user_func($content, $row);
         }
 
         ob_start();

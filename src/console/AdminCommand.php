@@ -1,10 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: youxingxiang
- * Date: 2020/8/19
- * Time: 5:56 PM
+
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
  */
+
 namespace quick\admin\console;
 
 use quick\admin\Admin;
@@ -15,7 +22,7 @@ class AdminCommand extends Command
     /**
      * @var string
      */
-    public static $logo = <<<LOGO
+    public static $logo = <<<'LOGO'
     
 
    ____  __  ______________ __      ___    ____  __  ________   __
@@ -35,7 +42,6 @@ LOGO;
             ->setHelp('非常不错');
     }
 
-
     public function handle(): void
     {
         $this->output->info(static::$logo);
@@ -43,6 +49,4 @@ LOGO;
         $this->output->comment('');
         $this->output->comment('Available commands:');
     }
-
-
 }

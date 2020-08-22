@@ -1,5 +1,17 @@
 <?php
 
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
+ */
+
 namespace quick\admin\layout;
 
 use think\Response;
@@ -52,7 +64,7 @@ class Row extends Response
      */
     public function class($class)
     {
-        if (is_string($class)) {
+        if (\is_string($class)) {
             $class = [$class];
         }
 
@@ -61,9 +73,6 @@ class Row extends Response
         return $this;
     }
 
-    /**
-     * @param Column $column
-     */
     protected function addColumn(Column $column)
     {
         $this->columns[] = $column;

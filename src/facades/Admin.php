@@ -1,9 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: youxingxiang
- * Date: 2020/8/19
- * Time: 3:11 PM
+
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
  */
 
 namespace quick\admin\facades;
@@ -13,13 +19,12 @@ use think\Facade;
 class Admin extends Facade
 {
     /**
-     * Class Admin
+     * Class Admin.
+     *
      * @method static \quick\admin\Admin    routes()
-     * @return string
      */
     protected static function getFacadeClass(): string
     {
         return \quick\admin\Admin::class;
     }
 }
-

@@ -1,15 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: youxingxiang
- * Date: 2020/8/20
- * Time: 10:03 AM
+
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
  */
+
 namespace quick\admin\controllers;
 
 use app\BaseController;
 
 class AdminController extends BaseController
 {
-
 }

@@ -1,9 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: youxingxiang
- * Date: 2020/8/19
- * Time: 2:26 PM
+
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
  */
 
 namespace quick\admin;
@@ -11,8 +17,7 @@ namespace quick\admin;
 use quick\admin\traits\HasAssets;
 
 /**
- * Class Admin
- * @package Quick\Admin
+ * Class Admin.
  */
 class Admin
 {
@@ -45,7 +50,6 @@ class Admin
     }
 
     /**
-     * @param null|string $title
      * @return mixed
      */
     public static function title(?string $title)
@@ -58,16 +62,14 @@ class Admin
     }
 
     /**
-     * @param null|string $favicon
      * @return mixed
      */
     public static function favicon(?string $favicon)
     {
-        if (is_null($favicon)) {
+        if (null === $favicon) {
             return static::$favicon;
         }
 
         static::$favicon = $favicon;
     }
-
 }

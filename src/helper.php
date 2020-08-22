@@ -1,71 +1,77 @@
 <?php
 
-use think\facade\View;
+/*
+ * // +----------------------------------------------------------------------
+ * // | Quick-Admin
+ * // +----------------------------------------------------------------------
+ * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // +----------------------------------------------------------------------
+ * // | Licensed ( LICENSE-1.0.0 )
+ * // +----------------------------------------------------------------------
+ * // | Author: yxx <1365831278@qq.com>
+ * // +----------------------------------------------------------------------
+ */
+
 use quick\admin\Admin;
 use quick\admin\support\Helper;
-use think\helper\Str;
+use think\facade\View;
 
 if (!function_exists('admin_path')) {
-
     /**
      * Get admin path.
-     *
-     * @param string $path
-     *
-     * @return string
      */
     function admin_path(string $path = ''): string
     {
-        return lcfirst(config('admin.directory')) . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+        return lcfirst(config('admin.directory')).($path ? DIRECTORY_SEPARATOR.$path : $path);
     }
 }
 
 if (!function_exists('admin_view_path')) {
-
     /**
      * Get admin path.
-     *
-     * @param string $path
-     *
-     * @return string
      */
     function admin_view_path(string $path = ''): string
     {
-        $viewsPath = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views';
-        return is_dir($viewsPath) ? $viewsPath . ($path ? DIRECTORY_SEPARATOR . $path : $path) : '';
+        $viewsPath = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'resources'.DIRECTORY_SEPARATOR.'views';
+
+        return is_dir($viewsPath) ? $viewsPath.($path ? DIRECTORY_SEPARATOR.$path : $path) : '';
     }
 }
 
 if (!function_exists('admin_view')) {
     /**
-     * 渲染模板输出
-     * @param string $template 模板文件
-     * @param array $vars 模板变量
-     * @param int $code 状态码
-     * @param callable $filter 内容过滤
+     * 渲染模板输出.
+     *
+     * @param string   $template 模板文件
+     * @param array    $vars     模板变量
+     * @param int      $code     状态码
+     * @param callable $filter   内容过滤
+     *
      * @return \think\response\View
      */
-    function admin_view(string $template, array $vars = [], int $code = 200, ?Closure $filter = null): \think\response\View
+    function admin_view(string $template, array $vars = [], int $code = 200, ?Closure $filter = null): think\response\View
     {
-        $viewPath = admin_view_path() . DIRECTORY_SEPARATOR;
+        $viewPath = admin_view_path().DIRECTORY_SEPARATOR;
         View::config([
-            'view_path'    => $viewPath,
+            'view_path' => $viewPath,
             // 模板引擎普通标签开始标记
-            'tpl_begin'    => '{{',
+            'tpl_begin' => '{{',
             // 模板引擎普通标签结束标记
-            'tpl_end'      => '}}',
+            'tpl_end' => '}}',
             // 标签库标签开始标记
             'taglib_begin' => '{',
             // 标签库标签结束标记
-            'taglib_end'   => '}',
+            'taglib_end' => '}',
         ]);
+
         return view($template, $vars, $code, $filter);
     }
 }
 
 if (!function_exists('admin_title')) {
     /**
-     * @param null|string $title
+     * @param string|null $title
+     *
      * @return mixed
      */
     function admin_title(string $title = '')
@@ -74,10 +80,8 @@ if (!function_exists('admin_title')) {
     }
 }
 
-
 if (!function_exists('admin_favicon')) {
     /**
-     * @param string $favicon
      * @return mixed
      */
     function admin_favicon(string $favicon = '')
@@ -87,11 +91,8 @@ if (!function_exists('admin_favicon')) {
 }
 
 if (!function_exists('admin_asset')) {
-
     /**
      * @param $path
-     *
-     * @return string
      */
     function admin_asset(string $path): string
     {
@@ -99,14 +100,11 @@ if (!function_exists('admin_asset')) {
             return $path;
         }
 
-        return domain() . DIRECTORY_SEPARATOR . $path;
+        return domain().DIRECTORY_SEPARATOR.$path;
     }
 }
 
 if (!function_exists('domain')) {
-    /**
-     * @return string
-     */
     function domain(): string
     {
         return request()->domain();
@@ -124,4 +122,3 @@ if (!function_exists('windows_os')) {
         return PHP_OS_FAMILY === 'Windows';
     }
 }
-
