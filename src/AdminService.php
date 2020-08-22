@@ -118,7 +118,7 @@ class AdminService extends Service
      */
     protected function addPublishGroup($group, $paths)
     {
-        if (!\array_key_exists($group, static::$publishGroups)) {
+        if (! \array_key_exists($group, static::$publishGroups)) {
             static::$publishGroups[$group] = [];
         }
 
@@ -135,7 +135,7 @@ class AdminService extends Service
      */
     protected function ensurePublishArrayInitialized($class)
     {
-        if (!\array_key_exists($class, static::$publishes)) {
+        if (! \array_key_exists($class, static::$publishes)) {
             static::$publishes[$class] = [];
         }
     }

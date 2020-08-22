@@ -119,7 +119,7 @@ trait HasAssets
             return self::$css = array_merge(self::$css, (array) $css);
         }
 
-        if (!$css = static::getMinifiedCss()) {
+        if (! $css = static::getMinifiedCss()) {
             $css = array_merge(static::$css, static::baseCss());
         }
 
@@ -161,7 +161,7 @@ trait HasAssets
             return self::$js = array_merge(self::$js, (array) $js);
         }
 
-        if (!$js = static::getMinifiedJs()) {
+        if (! $js = static::getMinifiedJs()) {
             $js = array_merge(static::baseJs(), static::$js);
         }
 
@@ -205,7 +205,7 @@ trait HasAssets
      */
     public static function ignoreMinify($assets, $ignore = true)
     {
-        if (!$ignore) {
+        if (! $ignore) {
             static::$minifyIgnores[] = $assets;
         }
     }
@@ -218,7 +218,7 @@ trait HasAssets
      */
     public static function script($script = '', $deferred = false)
     {
-        if (!empty($script)) {
+        if (! empty($script)) {
             if ($deferred) {
                 return self::$deferredScript = array_merge(self::$deferredScript, (array) $script);
             }
@@ -238,7 +238,7 @@ trait HasAssets
      */
     public static function style($style = '')
     {
-        if (!empty($style)) {
+        if (! empty($style)) {
             return self::$style = array_merge(self::$style, (array) $style);
         }
 
@@ -252,7 +252,7 @@ trait HasAssets
      */
     public static function html($html = '')
     {
-        if (!empty($html)) {
+        if (! empty($html)) {
             return self::$html = array_merge(self::$html, (array) $html);
         }
 
@@ -266,7 +266,7 @@ trait HasAssets
      */
     protected static function getManifestData($key)
     {
-        if (!empty(static::$manifestData)) {
+        if (! empty(static::$manifestData)) {
             return static::$manifestData[$key];
         }
 
@@ -283,7 +283,7 @@ trait HasAssets
      */
     protected static function getMinifiedCss()
     {
-        if (!config('admin.minify_assets') || !file_exists(public_path(static::$manifest))) {
+        if (! config('admin.minify_assets') || ! file_exists(public_path(static::$manifest))) {
             return false;
         }
 
@@ -295,7 +295,7 @@ trait HasAssets
      */
     protected static function getMinifiedJs()
     {
-        if (!config('admin.minify_assets') || !file_exists(public_path(static::$manifest))) {
+        if (! config('admin.minify_assets') || ! file_exists(public_path(static::$manifest))) {
             return false;
         }
 

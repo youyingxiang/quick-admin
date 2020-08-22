@@ -37,7 +37,7 @@ class Row extends Response
      */
     public function __construct($content = '')
     {
-        if (!empty($content)) {
+        if (! empty($content)) {
             $this->column(12, $content);
         }
     }

@@ -16,7 +16,7 @@ use quick\admin\Admin;
 use quick\admin\support\Helper;
 use think\facade\View;
 
-if (!function_exists('admin_path')) {
+if (! function_exists('admin_path')) {
     /**
      * Get admin path.
      */
@@ -26,7 +26,7 @@ if (!function_exists('admin_path')) {
     }
 }
 
-if (!function_exists('admin_view_path')) {
+if (! function_exists('admin_view_path')) {
     /**
      * Get admin path.
      */
@@ -38,7 +38,7 @@ if (!function_exists('admin_view_path')) {
     }
 }
 
-if (!function_exists('admin_view')) {
+if (! function_exists('admin_view')) {
     /**
      * 渲染模板输出.
      *
@@ -68,7 +68,7 @@ if (!function_exists('admin_view')) {
     }
 }
 
-if (!function_exists('admin_title')) {
+if (! function_exists('admin_title')) {
     /**
      * @param string|null $title
      *
@@ -80,7 +80,7 @@ if (!function_exists('admin_title')) {
     }
 }
 
-if (!function_exists('admin_favicon')) {
+if (! function_exists('admin_favicon')) {
     /**
      * @return mixed
      */
@@ -90,7 +90,7 @@ if (!function_exists('admin_favicon')) {
     }
 }
 
-if (!function_exists('admin_asset')) {
+if (! function_exists('admin_asset')) {
     /**
      * @param $path
      */
@@ -104,14 +104,14 @@ if (!function_exists('admin_asset')) {
     }
 }
 
-if (!function_exists('domain')) {
+if (! function_exists('domain')) {
     function domain(): string
     {
         return request()->domain();
     }
 }
 
-if (!function_exists('windows_os')) {
+if (! function_exists('windows_os')) {
     /**
      * Determine whether the current environment is Windows based.
      *
