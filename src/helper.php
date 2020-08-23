@@ -4,7 +4,7 @@
  * // +----------------------------------------------------------------------
  * // | Quick-Admin
  * // +----------------------------------------------------------------------
- * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // | Copyright (c) 2006~2020 quick-admin All rights reserved.
  * // +----------------------------------------------------------------------
  * // | Licensed ( LICENSE-1.0.0 )
  * // +----------------------------------------------------------------------
@@ -120,5 +120,51 @@ if (! function_exists('windows_os')) {
     function windows_os()
     {
         return PHP_OS_FAMILY === 'Windows';
+    }
+}
+
+if (! function_exists('admin_base_path')) {
+    /**
+     * Get admin url.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    function admin_base_path($path = '')
+    {
+        $prefix = '/'.trim(config('admin.route.prefix'), '/');
+
+        $prefix = ($prefix == '/') ? '' : $prefix;
+
+        $path = trim($path, '/');
+
+        if (null === $path || strlen($path) == 0) {
+            return $prefix ?: '/';
+        }
+
+        return $prefix.'/'.$path;
+    }
+}
+
+if (! function_exists('admin_url')) {
+    /**
+     * Get admin url.
+     *
+     * @param string $path
+     * @param mixed  $parameters
+     * @param bool   $secure
+     *
+     * @return string
+     */
+    function admin_url($path = '', $parameters = [], $secure = null)
+    {
+        if (Helper::isValidUrl($path)) {
+            return $path;
+        }
+
+        $secure = $secure ?: (config('admin.https') || config('admin.secure'));
+
+        return url(admin_base_path($path), $parameters, $secure);
     }
 }

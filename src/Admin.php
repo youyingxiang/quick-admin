@@ -4,7 +4,7 @@
  * // +----------------------------------------------------------------------
  * // | Quick-Admin
  * // +----------------------------------------------------------------------
- * // | Copyright (c) 2006~2019 quick-admin All rights reserved.
+ * // | Copyright (c) 2006~2020 quick-admin All rights reserved.
  * // +----------------------------------------------------------------------
  * // | Licensed ( LICENSE-1.0.0 )
  * // +----------------------------------------------------------------------
@@ -14,6 +14,7 @@
 
 namespace quick\admin;
 
+use quick\admin\layout\Menu;
 use quick\admin\traits\HasAssets;
 
 /**
@@ -38,6 +39,11 @@ class Admin
      * @var string
      */
     protected static $favicon;
+
+    /**
+     * @var array
+     */
+    protected $menu = [];
 
     /**
      * 版本.
@@ -71,5 +77,13 @@ class Admin
         }
 
         static::$favicon = $favicon;
+    }
+
+    /**
+     * @return Menu
+     */
+    public function menu()
+    {
+        return new Menu();
     }
 }
