@@ -103,6 +103,7 @@ class Menu
             if (empty($item['uri'])) {
                 return false;
             }
+
             return trim($this->getPath($item['uri']), '/') == $path;
         }
 
